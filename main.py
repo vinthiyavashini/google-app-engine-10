@@ -2,7 +2,7 @@ from flask import Flask, render_template_string, request, redirect, url_for, ses
 import os
 import random
 
-app = Flask(_name_)
+app = Flask(__name__)
 # This key is required to keep you logged in across different pages
 app.secret_key = "cloud_computing_2026_secret" 
 
@@ -166,6 +166,6 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('login'))
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
